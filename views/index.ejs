@@ -1,0 +1,34 @@
+<%- include("partials/header"); -%>
+
+
+
+    <h1 class="heading">Blog Article    </h1>
+
+
+    <% items.forEach(function(item){ %>
+        <div class="card mt-4">
+            <h4 class="card-title"><%= item.title %></h4>
+            <div class="card-subtitle text-muted mb-2">
+                <%= item.createdAt.toLocaleString() %>
+            </div>
+            <div class="card-text mb-2">
+                <%= item.description.substring(0,100)+ "..." %>
+                <a href="/new/<%=item._id%>">Read More</a>
+
+
+
+            </div>
+       
+        
+    <form action='/delete' method="post">
+        <button id="deleteItem" class="btn btn-info" name="delete" value="<%=item._id %>" onChange="this.form.submit()" >DELETE</button>
+    </form>  
+    
+</div>
+
+  <%  })  %> 
+
+   
+
+
+<%- include("partials/footer"); -%>
